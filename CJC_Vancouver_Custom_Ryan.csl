@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl"
+       version="1.0"
+       class="in-text"
+       default-locale="en-US">
+  <info>
+    <title>Canadian Journal of Cardiology (Custom Vancouver – Ryan)</title>
+    <title-short>CJC Vancouver custom</title-short>
+    <id>http://www.zotero.org/styles/cjc-vancouver-custom-ryan</id>
+    <link href="http://www.zotero.org/styles/cjc-vancouver-custom-ryan" rel="self"/>
+    <category citation-format="numeric"/>
+    <category field="medicine"/>
+    <updated>2025-11-22T00:00:00+00:00</updated>
+    <rights license="http://creativecommons.org/licenses/by-sa/3.0/">
+      This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License
+    </rights>
+  </info>
+
+  <!-- Locale tweak:
+       Redefine the "and" term as empty so no literal "and" appears between authors
+       This syntax (no <single>/<multiple>) is safe for CSL 1.0 implementations.
+  -->
+  <locale xml:lang="en">
+    <terms>
+      <term name="and"></term>
+    </terms>
+  </locale>
+
+  <!-- ===== AUTHOR MACRO =====
+       - Lastname Initials (no "and")
+       - If ≤6 authors: list all
+       - If >6 authors: first 6 + "et al."
+  -->
+  <macro name="author">
+    <names variable="author"
+           et-al-min="7"
+           et-al-use-first="6"
+           et-al-use-last="false">
+      <name name-as-sort-order="first"
+            initialize-with=""
+            delimiter=", "
+            delimiter-precedes-last="always"/>
+      <et-al term="et-al"/>
+    </names>
+  </macro>
+
+  <!-- Article title -->
+  <macro name="title">
+    <text variable="title"/>
+  </macro>
+
+  <!-- Journal (use abbreviation if present) -->
+  <macro name="journal">
+    <text variable="container-title" form="short"/>
+  </macro>
+
+  <!-- Year only -->
+  <macro name="year">
+    <date variable="issued">
+      <date-part name="year"/>
+    </date>
+  </macro>
+
+  <!-- Volume(issue) -->
+  <macro name="volume-issue">
+    <group>
+      <text variable="volume"/>
+      <group prefix="(" suffix=")">
+        <text variable="issue"/>
+      </group>
+    </group>
+  </macro>
+
+  <!-- Pages / article number -->
+  <macro name="pages">
+    <text variable="page"/>
+  </macro>
+
+  <!-- ===== CITATION: superscript numeric, Vancouver-style ranges ===== -->
+  <citation collapse="citation-number">
+    <sort>
+      <key variable="citation-number"/>
+    </sort>
+    <layout vertical-align="sup" delimiter=",">
+      <text variable="citation-number"/>
+    </layout>
+  </citation>
+
+  <!-- ===== BIBLIOGRAPHY =====
+       Authors. Title. Journal Year; Volume(issue): Pages.
+  -->
+  <bibliography
+      et-al-min="7"
+      et-al-use-first="6"
+      entry-spacing="0"
+      line-spacing="1"
+      second-field-align="flush">
+    <sort>
+      <key variable="citation-number"/>
+    </sort>
+    <layout>
+      <!-- Reference number -->
+      <text variable="citation-number" suffix=". "/>
+
+      <!-- Authors. -->
+      <text macro="author" suffix=". "/>
+
+      <!-- Title. -->
+      <text macro="title" suffix=". "/>
+
+      <!-- Journal Year; Volume(issue): Pages. -->
+      <group delimiter=" ">
+        <!-- Journal -->
+        <text macro="journal"/>
+
+        <!-- Year; -->
+        <group>
+          <text macro="year" suffix=";"/>
+        </group>
+
+        <!-- Volume(issue): Pages. -->
+        <group>
+          <text macro="volume-issue" suffix=":"/>
+          <text macro="pages" prefix=" " suffix="."/>
+        </group>
+      </group>
+    </layout>
+  </bibliography>
+</style>
