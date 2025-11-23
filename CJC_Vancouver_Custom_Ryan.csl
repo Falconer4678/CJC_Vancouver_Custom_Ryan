@@ -4,32 +4,22 @@
        class="in-text"
        default-locale="en-US">
   <info>
-    <title>Canadian Journal of Cardiology (Custom Vancouver – Ryan)</title>
+    <title>Canadian Journal of Cardiology (Vancouver, custom)</title>
     <title-short>CJC Vancouver custom</title-short>
-    <id>http://www.zotero.org/styles/cjc-vancouver-custom-ryan</id>
-    <link href="http://www.zotero.org/styles/cjc-vancouver-custom-ryan" rel="self"/>
+    <id>https://raw.githubusercontent.com/Falconer4678/CJC_Vancouver_Custom_Ryan/main/CJC_Vancouver_Custom_Ryan.csl</id>
+    <link href="https://raw.githubusercontent.com/Falconer4678/CJC_Vancouver_Custom_Ryan/main/CJC_Vancouver_Custom_Ryan.csl" rel="self"/>
     <category citation-format="numeric"/>
     <category field="medicine"/>
-    <updated>2025-11-22T00:00:00+00:00</updated>
+    <updated>2025-11-23T00:00:00+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">
       This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License
     </rights>
   </info>
 
-  <!-- Locale tweak:
-       Redefine the "and" term as empty so no literal "and" appears between authors
-       This syntax (no <single>/<multiple>) is safe for CSL 1.0 implementations.
-  -->
-  <locale xml:lang="en">
-    <terms>
-      <term name="and"></term>
-    </terms>
-  </locale>
-
   <!-- ===== AUTHOR MACRO =====
-       - Lastname Initials (no "and")
-       - If ≤6 authors: list all
-       - If >6 authors: first 6 + "et al."
+       - Lastname Initials
+       - ≤6 authors: list all
+       - >6 authors: first 6 + "et al."
   -->
   <macro name="author">
     <names variable="author"
@@ -44,7 +34,7 @@
     </names>
   </macro>
 
-  <!-- Article title -->
+  <!-- Title -->
   <macro name="title">
     <text variable="title"/>
   </macro>
@@ -76,7 +66,7 @@
     <text variable="page"/>
   </macro>
 
-  <!-- ===== CITATION: superscript numeric, Vancouver-style ranges ===== -->
+  <!-- ===== CITATION: superscript numeric, collapsed ranges ===== -->
   <citation collapse="citation-number">
     <sort>
       <key variable="citation-number"/>
@@ -87,6 +77,7 @@
   </citation>
 
   <!-- ===== BIBLIOGRAPHY =====
+       Pattern:
        Authors. Title. Journal Year; Volume(issue): Pages.
   -->
   <bibliography
